@@ -6,6 +6,7 @@ module.exports = {
     entities: [
         "dist/**/*.entity{.ts,.js}"
     ],
+    ssl: true,
     logging: false,
     synchronize: true,
     namingStrategy: new SnakeNamingStrategy()
