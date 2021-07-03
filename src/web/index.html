@@ -8,6 +8,14 @@
   <link href="favicon.ico" rel="icon" type="image/x-icon">
   <link href="assets/styles/light.css" id="theme-link" rel="stylesheet" type="text/css">
   <link href="manifest.webmanifest" rel="manifest">
+  <meta content=" default-src 'none';
+                  frame-src 'self';
+                  script-src 'self';
+                  style-src 'self' 'unsafe-inline';
+                  font-src 'self';
+                  img-src 'self' data:;
+                  connect-src 'self'"
+        http-equiv="Content-Security-Policy">
   <meta content="default-src 'self'" http-equiv="Content-Security-Policy">
   <meta content="#1976d2" name="theme-color">
 </head>
