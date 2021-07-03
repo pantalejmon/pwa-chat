@@ -1,6 +1,5 @@
 import {NestFactory} from '@nestjs/core';
 import {API, AppModule} from './app.module';
-import * as helmet from 'helmet';
 import * as bodyParser from 'body-parser';
 import {ValidationPipe} from '@nestjs/common';
 import {WsAdapter} from "@nestjs/platform-ws";
@@ -11,9 +10,9 @@ async function bootstrap(): Promise<void> {
     const app = await NestFactory.create(AppModule, {logger: ['error', 'warn', 'debug', 'verbose', 'log']});
 
     // Security config
-    app.use(
-        helmet()
-    );
+    // app.use(
+    //     helmet()
+    // );
     app.useGlobalPipes(new ValidationPipe());
     app.useWebSocketAdapter(new WsAdapter(app));
 

@@ -3,9 +3,8 @@
   "index": "/index.html",
   "assetGroups": [
     {
-      "name": "Chat",
+      "name": "app",
       "installMode": "prefetch",
-      "updateMode": "lazy",
       "resources": {
         "files": [
           "/favicon.ico",
@@ -18,8 +17,8 @@
     },
     {
       "name": "assets",
-      "installMode": "prefetch",
-      "updateMode": "lazy",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
       "resources": {
         "files": [
           "/assets/**",
