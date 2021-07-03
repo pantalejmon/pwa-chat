@@ -6,7 +6,9 @@ module.exports = {
     entities: [
         "dist/**/*.entity{.ts,.js}"
     ],
-    ssl: true,
+    ssl: process.env.NODE_ENV === 'prod'
+        ? {rejectUnauthorized: false}
+        : false,
     logging: false,
     synchronize: true,
     namingStrategy: new SnakeNamingStrategy()
