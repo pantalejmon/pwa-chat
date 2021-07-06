@@ -60,7 +60,7 @@ export class RegistrationPanelComponent {
         .subscribe(
           (usernameUnique) => this.usernameUnique = usernameUnique,
           () => this.toastService.showError('Connection error'),
-          () => this.username = value.nickname
+          () => this.username = value.username
         );
     }
 
