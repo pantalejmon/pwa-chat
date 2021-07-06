@@ -3,14 +3,14 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {LoginComponent} from './domain/login/login.component';
+import {LoginPanelComponent} from './domain/user/login/login-panel/login-panel.component';
 import {HeaderComponent} from './ui/header/header.component';
 import {InputSwitchModule} from "primeng/inputswitch";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
-import {LoginViewComponent} from './domain/login-view/login-view.component';
+import {LoginViewComponent} from './domain/user/login/login-view/login-view.component';
 import {CardModule} from "primeng/card";
 import {InputTextModule} from "primeng/inputtext";
 import {PasswordModule} from "primeng/password";
@@ -18,16 +18,25 @@ import {ButtonModule} from "primeng/button";
 import {DividerModule} from "primeng/divider";
 import {MessageService} from "primeng/api";
 import {RippleModule} from "primeng/ripple";
+import {RegistrationPanelComponent} from './domain/user/registration/registration-panel/registration-panel.component';
+import {RegistrationViewComponent} from './domain/user/registration/registration-view/registration-view.component';
+import {HttpClientModule} from "@angular/common/http";
+import {ToastModule} from "primeng/toast";
+import {HomeComponent} from "./domain/home/home.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    LoginPanelComponent,
     HeaderComponent,
-    LoginViewComponent
+    LoginViewComponent,
+    RegistrationPanelComponent,
+    RegistrationViewComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     InputSwitchModule,
@@ -41,7 +50,9 @@ import {RippleModule} from "primeng/ripple";
     PasswordModule,
     ButtonModule,
     DividerModule,
-    RippleModule
+    RippleModule,
+    ReactiveFormsModule,
+    ToastModule
   ],
   providers: [
     MessageService

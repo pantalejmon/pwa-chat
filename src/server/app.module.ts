@@ -7,6 +7,7 @@ import {User} from "./domain/user/user.entity";
 import {ServeStaticModule} from "@nestjs/serve-static";
 import {AuthController} from "./infrastructure/auth/auth.controller";
 import {UserController} from "./domain/user/user.controller";
+import {Session} from "./infrastructure/session/session.entity";
 
 export const API = process.env.API_URL || `api`;
 
@@ -15,7 +16,8 @@ export const API = process.env.API_URL || `api`;
     imports: [
         TypeOrmModule.forRoot(),
         TypeOrmModule.forFeature([
-            User
+            User,
+            Session
         ]),
         ServeStaticModule.forRoot({
             rootPath: join(__dirname, `web`),

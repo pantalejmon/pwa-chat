@@ -17,7 +17,7 @@ export class User {
         length: 100,
         unique: true
     })
-    nickname: string;
+    username: string;
 
     @Column({
         length: 100
@@ -31,7 +31,7 @@ export class User {
     static createUserFromRegistration(userToCreate: User): User {
         const user = new User();
         user.email = userToCreate.email;
-        user.nickname = userToCreate.nickname;
+        user.username = userToCreate.username;
         user.password = userToCreate.password;
 
         return user;
@@ -47,7 +47,8 @@ export class User {
         return !!this.email
             && EMAIL_REGEX.test(this.email)
             && !!this.password
-            && !!this.nickname
-            && PASSWORD_REGEX.test(this.password);
+            && !!this.username
+            && PASSWORD_REGEX.test(this.password)
+            && !this.id;
     }
 }

@@ -329,3 +329,25 @@ html, body {
   color: #6fb36f;
 }
 
+.full {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 9999;
+  background-color: var(--surface-b);
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+img {
+  height: 50px;
+}

@@ -6,6 +6,6 @@ export class UserDto {
 
     constructor(value: User = new User()) {
         this.email = value.email;
-        this.nickname = value.nickname;
+        this.nickname = value.username;
     }
 }

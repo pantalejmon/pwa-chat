@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ThemeService} from "../../infrastructure/theme/theme.service";
 import {EventService} from "../../infrastructure/event/event.service";
+import {filter} from "rxjs/operators";
+import {CHANGE_THEME_EVENT} from "../../infrastructure/event/event.model";
 
 @Component({
   selector: 'app-header',
@@ -13,22 +15,19 @@ export class HeaderComponent implements OnInit {
 
   constructor(private eventService: EventService,
               private themeService: ThemeService) {
-    this.eventService.getEvent().subscribe(value => {
-      if (value && value.text === 'theme') {
-        this.reloadThemeSwitch();
-      }
-    });
+    this.eventService
+      .getEvent()
+      .pipe(filter(value => value?.text === CHANGE_THEME_EVENT))
+      .subscribe(() => this.reloadThemeSwitch());
   }
 
-
-  ngOnInit(): void {
+  ngOnInit() {
     this.reloadThemeSwitch();
   }
 
   reloadThemeSwitch() {
     this.darkSwitch = this.themeService.getDarkThemeStatus();
   }
-
 
   changeTheme() {
     this.themeService.changeTheme(this.darkSwitch);
