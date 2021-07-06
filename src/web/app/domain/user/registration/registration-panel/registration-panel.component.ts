@@ -45,7 +45,6 @@ export class RegistrationPanelComponent {
   }
 
   validateValues(value) {
-    console.log('tp1');
 
     if (value.email !== this.email) {
       this.registrationService.emailIsFree(value.email)
@@ -56,10 +55,10 @@ export class RegistrationPanelComponent {
         );
     }
 
-    if (value.nickname !== this.username) {
-      this.registrationService.usernameIsFree(value.nickname)
+    if (value.username !== this.username) {
+      this.registrationService.usernameIsFree(value.username)
         .subscribe(
-          (nicknameUnique) => this.usernameUnique = nicknameUnique,
+          (usernameUnique) => this.usernameUnique = usernameUnique,
           () => this.toastService.showError('Connection error'),
           () => this.username = value.nickname
         );
@@ -69,7 +68,7 @@ export class RegistrationPanelComponent {
   }
 
 
-  registerTeam(): void {
+  register(): void {
     const user = new UserForm(this.registrationForm.value);
     this.registrationService
       .signup(user)
