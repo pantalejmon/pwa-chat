@@ -26,6 +26,10 @@ export class LoginPanelComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!!this.loginService.getLogged()) {
+      const redirectUrl = this.getRedirectUrl() ?? '/home';
+      this.router.navigate([redirectUrl]);
+    }
   }
 
   tryLogin(): void {

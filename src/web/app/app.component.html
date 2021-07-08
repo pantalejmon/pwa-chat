@@ -1,6 +1,8 @@
 <header>
-  <app-header></app-header>
+  <app-header (menuButtonClick)=" onMenuButtonClick()"></app-header>
 </header>
+<app-menu (menuClick)="hideMenu()" [active]="menuActive"></app-menu>
+<div (click)="onMaskClick()" [ngClass]="{'layout-mask-active': menuActive}" class="layout-mask"></div>
 
 <div class="under-header">
   <router-outlet class="under-header"></router-outlet>

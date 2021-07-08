@@ -1,0 +1,11 @@
+<div [ngClass]="{'active': active}" class="layout-sidebar">
+  <div class="w-100 text-center p-1">
+    <div *ngIf="loginService.getLogged()" class="">
+      {{loginService.getLogged().email}}
+    </div>
+    <i class="pi pi-sun h4 m-3"> </i>
+    <p-inputSwitch (onChange)="changeTheme()" [(ngModel)]="darkSwitch"></p-inputSwitch>
+    <i class="pi pi-moon h5 m-3"> </i>
+  </div>
+  <p-panelMenu [model]="items"></p-panelMenu>
+</div>

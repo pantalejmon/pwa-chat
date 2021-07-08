@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ThemeService} from "../../infrastructure/theme/theme.service";
 import {EventService} from "../../infrastructure/event/event.service";
 import {filter} from "rxjs/operators";
@@ -11,13 +11,15 @@ import {CHANGE_THEME_EVENT} from "../../infrastructure/event/event.model";
 })
 export class HeaderComponent implements OnInit {
 
+  @Output() menuButtonClick: EventEmitter<any> = new EventEmitter();
+
   darkSwitch = false;
 
   constructor(private eventService: EventService,
               private themeService: ThemeService) {
     this.eventService
       .getEvent()
-      .pipe(filter(value => value?.text === CHANGE_THEME_EVENT))
+      .pipe(filter(value => value === CHANGE_THEME_EVENT))
       .subscribe(() => this.reloadThemeSwitch());
   }
 
@@ -31,5 +33,10 @@ export class HeaderComponent implements OnInit {
 
   changeTheme() {
     this.themeService.changeTheme(this.darkSwitch);
+  }
+
+  onMenuButtonClick(event: Event) {
+    this.menuButtonClick.emit();
+    event.preventDefault();
   }
 }

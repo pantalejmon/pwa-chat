@@ -9,6 +9,8 @@ import * as Hammer from 'hammerjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  menuActive = false;
+
   constructor(private primengConfig: PrimeNGConfig,
               elementRef: ElementRef,
               private updates: SwUpdate,
@@ -26,16 +28,12 @@ export class AppComponent {
       ]
     });
 
-    hammertime.on('swiperight', () => {
-      this.showMessage();
-    });
-
-    hammertime.on('swipeleft', () => {
-      this.showMessage();
-    });
+    hammertime.on('swiperight', () => this.menuActive = true);
+    hammertime.on('swipeleft', () => this.menuActive = false);
 
     updates.available.subscribe(() => {
-      updates.activateUpdate().then(() => this.updateApp());
+      updates.activateUpdate()
+        .then(() => this.updateApp());
     });
   }
 
@@ -43,8 +41,16 @@ export class AppComponent {
     document.location.reload();
   }
 
-  showMessage() {
-    this.messageService.add({severity: 'Warning', summary: '', detail: 'Gestures will be supported soon'});
+  onMenuButtonClick() {
+    this.menuActive = !this.menuActive;
+  }
+
+  onMaskClick() {
+    this.hideMenu();
+  }
+
+  hideMenu() {
+    this.menuActive = false;
   }
 
 }

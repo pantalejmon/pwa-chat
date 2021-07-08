@@ -110,6 +110,7 @@ html, body {
 }
 
 .menu-button {
+  position: relative;
   display: none;
   color: var(--text-color);
   width: 70px;
@@ -118,6 +119,15 @@ html, body {
   text-align: center;
   transition: background-color .2s;
   cursor: pointer;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .menu-button:hover {
@@ -350,4 +360,9 @@ html, body {
 
 img {
   height: 50px;
+}
+
+.p-inputswitch-slider {
+  top: 5px !important;
+  bottom: -5px !important;
 }

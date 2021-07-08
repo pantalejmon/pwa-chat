@@ -23,6 +23,9 @@ import {RegistrationViewComponent} from './domain/user/registration/registration
 import {HttpClientModule} from "@angular/common/http";
 import {ToastModule} from "primeng/toast";
 import {HomeComponent} from "./domain/home/home.component";
+import {MenuComponent} from './ui/menu/menu.component';
+import {PanelMenuModule} from "primeng/panelmenu";
+import {PanelModule} from "primeng/panel";
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import {HomeComponent} from "./domain/home/home.component";
     LoginViewComponent,
     RegistrationPanelComponent,
     RegistrationViewComponent,
-    HomeComponent
+    HomeComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,9 @@ import {HomeComponent} from "./domain/home/home.component";
     DividerModule,
     RippleModule,
     ReactiveFormsModule,
-    ToastModule
+    ToastModule,
+    PanelMenuModule,
+    PanelModule
   ],
   providers: [
     MessageService

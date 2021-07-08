@@ -11,12 +11,12 @@
       <p-divider></p-divider>
     </div>
     <div class="p-col-12">
-      <span class="p-input-icon-left p-input-icon-right p-fluid w-100">
-        <i class="pi pi-user"></i>
-        <input formControlName="username" pInputText placeholder="Username" type="text">
+      <span class="p-input-icon-right  w-100">
+        <input class="w-100" formControlName="username" pInputText placeholder="Username" type="text">
         <i *ngIf="usernameUnique === true && !registrationForm.get('username').invalid"
            class="pi pi-check text-success"></i>
-        <i *ngIf="isControlTouchedInvalid('username') || usernameUnique === false" class="pi pi-times text-danger"></i>
+        <i *ngIf="isControlTouchedInvalid('username') || usernameUnique === false"
+           class="pi pi-times text-danger"></i>
       </span>
       <div *ngIf="isControlTouchedInvalid('username')">
         <div *ngIf="registrationForm.get('username').errors.required">
@@ -31,8 +31,7 @@
       </div>
     </div>
     <div class="p-col-12">
-      <div class="p-input-icon-left p-input-icon-right p-fluid w-100">
-        <i class="pi pi-envelope"></i>
+      <div class="p-input-icon-right p-fluid w-100">
         <input formControlName="email" pInputText placeholder="Email" type="text">
         <i *ngIf="emailUnique === true && !registrationForm.get('email').invalid" class="pi pi-check text-success"></i>
         <i *ngIf="isControlTouchedInvalid('email') || emailUnique === false" class="pi pi-times text-danger"></i>
@@ -51,8 +50,7 @@
       </div>
     </div>
     <div class="p-col-12">
-      <div class="p-input-icon-left p-input-icon-right p-fluid w-100">
-        <i class="pi pi-lock"></i>
+      <div class="p-input-icon-right p-fluid w-100">
         <input [feedback]="false" formControlName="password" pPassword placeholder="Password" type="password"/>
         <i *ngIf=" !registrationForm.get('password').invalid" class="pi pi-check text-success"></i>
         <i *ngIf="isControlTouchedInvalid('password')" class="pi pi-times text-danger"></i>
@@ -70,8 +68,7 @@
       </div>
     </div>
     <div class="p-col-12">
-      <div class="p-input-icon-left p-input-icon-right p-fluid w-100">
-        <i class="pi pi-lock"></i>
+      <div class="p-input-icon-right p-fluid w-100">
         <input [feedback]="false" formControlName="password2" pPassword placeholder="Repeat password" type="password"/>
         <i *ngIf=" !registrationForm.get('password2').invalid" class="pi pi-check text-success"></i>
         <i *ngIf="isControlTouchedInvalid('password2')" class="pi pi-times text-danger"></i>
