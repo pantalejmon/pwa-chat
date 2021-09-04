@@ -1,6 +1,6 @@
 import {Controller, Get, Post, Req, Session, UseGuards} from '@nestjs/common';
 import {Request} from 'express';
-import {SessionGuard} from './guards/session.guard';
+import {AuthGuard} from './guards/auth.guard';
 import {AuthService} from "./auth.service";
 
 @Controller(`auth`)
@@ -10,7 +10,7 @@ export class AuthController {
     }
 
     @Get()
-    @UseGuards(SessionGuard)
+    @UseGuards(AuthGuard)
     getUserInfo(@Req() req: Request, @Session() session): any {
         return session.user;
     }
@@ -21,7 +21,7 @@ export class AuthController {
     }
 
     @Get('/logout')
-    @UseGuards(SessionGuard)
+    @UseGuards(AuthGuard)
     logout(@Req() req: Request, @Session() session): any {
         delete session.user;
     }

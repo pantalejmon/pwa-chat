@@ -1,4 +1,4 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn} from "typeorm";
 import {UserDto} from "./user.dto";
 
 @Entity()
@@ -23,6 +23,10 @@ export class User {
         length: 100
     })
     password: string;
+
+    @ManyToMany(() => User)
+    @JoinTable()
+    friends: User[];
 
     constructor(value: any = {}) {
         Object.assign(this, value);

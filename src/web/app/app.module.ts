@@ -26,6 +26,8 @@ import {HomeComponent} from "./domain/home/home.component";
 import {MenuComponent} from './ui/menu/menu.component';
 import {PanelMenuModule} from "primeng/panelmenu";
 import {PanelModule} from "primeng/panel";
+import {MenuModule} from "primeng/menu";
+import {MessagesModule} from "primeng/messages";
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import {PanelModule} from "primeng/panel";
     ReactiveFormsModule,
     ToastModule,
     PanelMenuModule,
-    PanelModule
+    PanelModule,
+    MenuModule,
+    MessagesModule
   ],
   providers: [
     MessageService

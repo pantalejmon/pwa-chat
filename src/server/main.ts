@@ -1,5 +1,5 @@
 import {NestFactory} from '@nestjs/core';
-import {API, AppModule} from './app.module';
+import {API, AppModule, PORT} from './app.module';
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import {ValidationPipe} from '@nestjs/common';
@@ -7,6 +7,7 @@ import {WsAdapter} from "@nestjs/platform-ws";
 import {TypeormStore} from "typeorm-store";
 import {getConnection} from "typeorm";
 import {Session} from "./infrastructure/session/session.entity";
+import {SocketAdapter} from "./infrastructure/websocket/socket.adapter";
 
 async function bootstrap(): Promise<void> {
 
@@ -18,25 +19,27 @@ async function bootstrap(): Promise<void> {
     //     helmet()
     // );
     app.useGlobalPipes(new ValidationPipe());
-    app.useWebSocketAdapter(new WsAdapter(app));
 
     // Endpoint config
     app.use(bodyParser.json({limit: '5mb'}));
     app.use(bodyParser.urlencoded({limit: '5mb', extended: true}));
     app.use(bodyParser.raw({limit: '5mb'}));
-    app.setGlobalPrefix(API);
 
     const repository = getConnection().getRepository(Session);
-    app.use(session({
+
+    const sessionInstance = session({
         secret: process.env.SESSION_KEY || 'secret',
         resave: false,
         saveUninitialized: false,
         store: new TypeormStore({repository})
-    }));
+    })
+    app.use(sessionInstance);
 
     // Run app
-    await app.listen(process.env.PORT || 8080);
+    app.useWebSocketAdapter(new SocketAdapter(app, sessionInstance));
+
+    await app.listen(PORT);
 }
 
 bootstrap()
-    .then(() => console.log('[INFO] Backend started'));
+    .then(() => console.log(`[INFO] Backend started at port: ${PORT}`));
