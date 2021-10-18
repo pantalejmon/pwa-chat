@@ -3,7 +3,6 @@ import {API, AppModule, PORT} from './app.module';
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import {ValidationPipe} from '@nestjs/common';
-import {WsAdapter} from "@nestjs/platform-ws";
 import {TypeormStore} from "typeorm-store";
 import {getConnection} from "typeorm";
 import {Session} from "./infrastructure/session/session.entity";
@@ -37,7 +36,7 @@ async function bootstrap(): Promise<void> {
 
     // Run app
     app.useWebSocketAdapter(new SocketAdapter(app, sessionInstance));
-
+    app.setGlobalPrefix(API);
     await app.listen(PORT);
 }
 

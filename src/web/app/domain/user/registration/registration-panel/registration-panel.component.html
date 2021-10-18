@@ -1,18 +1,18 @@
 <form (ngSubmit)="register()" [formGroup]="registrationForm">
 
-  <div class="p-grid">
-    <div class="p-col-2">
+  <div class="grid">
+    <div class="col-2">
       <img align="left" class="img-fluid" src="../../../../../assets/icons/icon-152x152.png">
     </div>
-    <div class="p-col-8">
-      <div class="p-d-inline-block h4 pt-2 w-100 p-text-center">Registration</div>
+    <div class="col-8">
+      <div class="p-d-inline-block h4 pt-2 w-full p-text-center">Registration</div>
     </div>
-    <div class="p-col-12">
+    <div class="col-12">
       <p-divider></p-divider>
     </div>
-    <div class="p-col-12">
-      <span class="p-input-icon-right  w-100">
-        <input class="w-100" formControlName="username" pInputText placeholder="Username" type="text">
+    <div class="col-12">
+      <span class="p-input-icon-right  w-full">
+        <input class="w-full" formControlName="username" pInputText placeholder="Username" type="text">
         <i *ngIf="usernameUnique === true && !registrationForm.get('username').invalid"
            class="pi pi-check text-success"></i>
         <i *ngIf="isControlTouchedInvalid('username') || usernameUnique === false"
@@ -30,8 +30,8 @@
         <span class="p-invalid">Provided username was used</span>
       </div>
     </div>
-    <div class="p-col-12">
-      <div class="p-input-icon-right p-fluid w-100">
+    <div class="col-12">
+      <div class="p-input-icon-right p-fluid w-full">
         <input formControlName="email" pInputText placeholder="Email" type="text">
         <i *ngIf="emailUnique === true && !registrationForm.get('email').invalid" class="pi pi-check text-success"></i>
         <i *ngIf="isControlTouchedInvalid('email') || emailUnique === false" class="pi pi-times text-danger"></i>
@@ -49,8 +49,8 @@
         <span class="p-invalid">Provided email was used</span>
       </div>
     </div>
-    <div class="p-col-12">
-      <div class="p-input-icon-right p-fluid w-100">
+    <div class="col-12">
+      <div class="p-input-icon-right p-fluid w-full">
         <input [feedback]="false" formControlName="password" pPassword placeholder="Password" type="password"/>
         <i *ngIf=" !registrationForm.get('password').invalid" class="pi pi-check text-success"></i>
         <i *ngIf="isControlTouchedInvalid('password')" class="pi pi-times text-danger"></i>
@@ -67,8 +67,8 @@
         </div>
       </div>
     </div>
-    <div class="p-col-12">
-      <div class="p-input-icon-right p-fluid w-100">
+    <div class="col-12">
+      <div class="p-input-icon-right p-fluid w-full">
         <input [feedback]="false" formControlName="password2" pPassword placeholder="Repeat password" type="password"/>
         <i *ngIf=" !registrationForm.get('password2').invalid" class="pi pi-check text-success"></i>
         <i *ngIf="isControlTouchedInvalid('password2')" class="pi pi-times text-danger"></i>
@@ -79,16 +79,16 @@
         </div>
       </div>
     </div>
-    <div class="p-col-12">
+    <div class="col-12">
       <p-divider></p-divider>
     </div>
 
-    <div class="p-col-6">
-      <button (click)="back()" class="w-100 p-fluid p-button-info p-button-outlined" label="Back" pButton
+    <div class="col-6">
+      <button (click)="back()" class="w-full p-fluid p-button-info p-button-outlined" label="Back" pButton
               pRipple></button>
     </div>
-    <div class="p-col-6">
-      <button [disabled]="!isSubmitEnabled" class="w-100 p-fluid p-button-outlined" label="Sign Up" pButton pRipple
+    <div class="col-6">
+      <button [disabled]="!isSubmitEnabled" class="w-full p-fluid p-button-outlined" label="Sign Up" pButton pRipple
               type="submit"></button>
     </div>
   </div>

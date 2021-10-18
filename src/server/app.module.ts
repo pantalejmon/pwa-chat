@@ -1,4 +1,4 @@
-import {HttpModule, Module} from '@nestjs/common';
+import {Module} from '@nestjs/common';
 import {UserService} from "./domain/user/user.service";
 import {AuthService} from "./infrastructure/auth/auth.service";
 import {join} from "path";
@@ -16,7 +16,6 @@ export const API = process.env.API_URL || `api`;
 export const SOCKET = process.env.API_URL || `socket`;
 
 export const PORT: number = parseInt(process.env.PORT) || 8080;
-
 
 @Module({
     imports: [

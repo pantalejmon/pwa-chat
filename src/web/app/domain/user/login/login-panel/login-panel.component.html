@@ -1,43 +1,43 @@
 <form (ngSubmit)="tryLogin()" [formGroup]="loginForm">
-  <div class="p-grid">
-    <div class="p-col-2">
+  <div class="grid">
+    <div class="col-2">
       <img align="left" class="img-fluid" src="../../../../../assets/icons/icon-152x152.png">
     </div>
-    <div class="p-col-8">
-      <div class="p-d-inline-block h4 pt-2 w-100 p-text-center">[PWA Chat]</div>
+    <div class="col-8">
+      <div class="p-d-inline-block h4 pt-2 w-full p-text-center">[PWA Chat]</div>
     </div>
-    <div class="p-col-12">
+    <div class="col-12">
       <p-divider></p-divider>
     </div>
-    <div class="p-col-12">
-      <div class="p-input-icon-left p-fluid w-100">
+    <div class="col-12">
+      <div class="p-input-icon-left p-fluid w-full">
         <i class="pi pi-user"></i>
         <input formControlName="username" pInputText placeholder="Username/Email" type="text">
       </div>
     </div>
-    <div class="p-col-12">
-      <div class="p-input-icon-left p-fluid w-100">
+    <div class="col-12">
+      <div class="p-input-icon-left p-fluid w-full">
         <i class="pi pi-lock"></i>
         <input [feedback]="false" formControlName="password" pPassword placeholder="Password" type="password"/>
       </div>
     </div>
-    <div class="p-col-12">
+    <div class="col-12">
       <p-divider></p-divider>
     </div>
-    <div class="p-col-12">
-      <button class="w-100 p-fluid p-button-outlined p-button-secondary" icon="pi pi-google" iconPos="left"
+    <div class="col-12">
+      <button class="w-full p-fluid p-button-outlined p-button-secondary" icon="pi pi-google" iconPos="left"
               label="Log with Google"
               pButton pRipple></button>
     </div>
-    <div class="p-col-12">
+    <div class="col-12">
       <p-divider></p-divider>
     </div>
-    <div class="p-col-6">
-      <button class="w-100 p-fluid p-button-info p-button-outlined" label="Sign Up" pButton pRipple
+    <div class="col-6">
+      <button class="w-full p-fluid p-button-info p-button-outlined" label="Sign Up" pButton pRipple
               routerLink="/registration"></button>
     </div>
-    <div class="p-col-6">
-      <button [disabled]="!loginForm.valid" class="w-100 p-fluid p-button-outlined" label="Log in" pButton pRipple
+    <div class="col-6">
+      <button [disabled]="!loginForm.valid" class="w-full p-fluid p-button-outlined" label="Log in" pButton pRipple
               type="submit"></button>
     </div>
   </div>

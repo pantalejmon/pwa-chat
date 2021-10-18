@@ -4,11 +4,11 @@
     {{loginService.getLogged().email}}
   </div>
 
-  <div class="w-100 text-center p-1 p-d-block p-d-lg-none">
+  <div class="w-full text-center p-1 p-d-block p-d-lg-none">
     <i class="pi pi-sun h4 m-3"> </i>
     <p-inputSwitch (onChange)="changeTheme()" [(ngModel)]="darkSwitch"></p-inputSwitch>
     <i class="pi pi-moon h5 m-3"> </i>
   </div>
   <p-divider></p-divider>
-  <p-menu styleClass="w-100" [model]="items"></p-menu>
+  <p-menu [model]="items" styleClass="w-full"></p-menu>
 </div>
